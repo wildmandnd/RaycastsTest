@@ -17,7 +17,7 @@ public partial class RaycastSystem : SystemBase
     NativeArray<RaycastInput> commands;
     NativeArray<Entity> cubes;
 
-    const int numOfEntities = 145;
+    const int numOfEntities = 200;
 
     protected override void OnStartRunning()
     {
@@ -31,7 +31,7 @@ public partial class RaycastSystem : SystemBase
         fixedStepSimulationSystemGroup.FixedRateManager = null;
 
         var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        cubes = em.Instantiate(PrefabsReference.cubePrefab, 10 * numOfEntities * numOfEntities, Allocator.Persistent);
+        cubes = em.Instantiate(PrefabsReference.cubePrefab, numOfEntities * numOfEntities, Allocator.Persistent);
 
         Entities
             .WithName("RandomizeTransforms")
